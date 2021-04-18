@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <h1>Results for selected Programming Language</h1>
+        <p>Name: <%= locals.select %> </p>
+            <ul> 
+                <li>
+                    Date Create: <%= locals.createdDate %> 
+                </li>
+                <li>
+                    Date By: <%= locals.createdBy %> 
+                </li>
+                <li>
+                    Market Share: <%= locals.market %> 
+                </li>
+                <li>
+                    Typing Disciplines: <%= locals.disc %> 
+                </li>
+
+            </ul>
+    
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
