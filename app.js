@@ -2,13 +2,15 @@
 var express = require('express');
 var app = express();
 const bodyParser  = require('body-parser');
-// required module to make calls to a REST API
+
+// required module to make calls to a REST API using axios
 const axios = require('axios');
 app.use(bodyParser.urlencoded());
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// index page
+// Home page of the website
 app.get('/', function(req, res) {
     res.render('pages/index');
 });
@@ -16,40 +18,30 @@ app.get('/', function(req, res) {
 app.post('/selection', function(req,res){
     var d = req.body.lans
     console.log(d)
-       /*
-    res.render('pages/select.ejs', {lang: req.body})
-    
-    res.render('pages/select.ejs');
-    axios.get(`https://cwrvx8v6xj.execute-api.us-east-2.amazonaws.com/default/apitest`)
-    .then((response) => {
-        var data = response.data;
-        for (var i = 0; i<=3; i++){
-            if (data[i].name == lang){
-                res.render('pages/select.ejs', {lang: data[i]});
-            }
-    
-        } 
-    
-    })
-    */
-   
 });
 
+// form where the data from the selected language goes into 
 app.post('/process_form', function(req, res){
-    // create a variable to hold the username parsed from the request body
+    // created a variable to hold the selected input
     var lang = req.body.lang
-    // create a variable to hold ....
 
     // print variable username to console
     console.log(lang);
+    // using axios we get the data from the API that was provided
     axios.get(`https://cwrvx8v6xj.execute-api.us-east-2.amazonaws.com/default/apitest`)
     .then((response) => {
+        // the data from the api is put into the variable data
         var data = response.data;
+        // i created a for loop in order to check the every language in the api data
+        // to see if the matches the input selected from the user
+        // so it if does match then it loads the data for the language into the select page
         for (var i = 0; i<=4; i++){
             if (data[i].name == lang){
                 console.log(data[i])
                 res.render('pages/select.ejs',
                 {
+                    //  from the api we take the name, date created, 
+                    // who created, market share, and the typing disciplines
                     select: data[i].name, 
                     createdDate: data[i].createdAt,
                     createdBy: data[i].createdBy,
@@ -63,8 +55,10 @@ app.post('/process_form', function(req, res){
     })
   
   });
-
+// port that we are using
 const port = 3000
+// connection to the port
 app.listen(port, () => {
+    // dislays that we establish conneciton to the port
     console.log(`Front-end app listening at http://localhost:${port}`)
 })

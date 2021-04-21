@@ -11,24 +11,42 @@
     </header>
 
     <main>
-        <h1>Results for selected Programming Language</h1>
-        <p>Name: <%= locals.select %> </p>
-            <ul> 
-                <li>
-                    Date Create: <%= locals.createdDate %> 
-                </li>
-                <li>
-                    Date By: <%= locals.createdBy %> 
-                </li>
-                <li>
-                    Market Share: <%= locals.market %> 
-                </li>
-                <li>
-                    Typing Disciplines: <%= locals.disc %> 
-                </li>
-
-            </ul>
-    
+        <h2>Selected Programming Language</h2>
+            <!-- creates the card for the data-->
+            <div class="card">
+                <div class="card-header">
+                    <!-- Will display the name of the selected language
+                         used <%=%> to include the name since it comes from the js file-->
+                    <p>Name: <%= locals.select %> </p>
+                </div>
+                <!-- Data inside of the card body-->
+                <div class="card-body">
+                    <!-- Creates the un ordered list for the data-->
+                    <ul> 
+                        <li>
+                            Date Created: <%= locals.createdDate %> 
+                        </li>
+                        <li>
+                            Date By: <%= locals.createdBy %> 
+                        </li>
+                        <li>
+                            Market Share: <%= locals.market %>% 
+                        </li>
+                        <li>
+                            Typing Disciplines: <%= locals.disc %> 
+                        </li>
+        
+                    </ul>
+                </div>
+              </div>
+              <!---->
+              <br>
+              <!-- used a div to move the back button to the right side of the page-->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <!--using href with the path to the home page. inside is the button so that when 
+                    the user clicks on the button it returns them to the home page-->
+                <a href="/" ><button type="button" class="btn btn-light">Back</button></a>
+              </div>
     </main>
 
     <footer>

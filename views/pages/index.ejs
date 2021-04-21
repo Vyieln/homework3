@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- includes that code from the head.ejs file that
+         calls the css file and the bootstrap link-->
     <%- include('../partials/head'); %>
 
 </head>
 <body class="container">
 
     <header>
+        <!-- calls to the header.ejs creating the nav bar
+             with the home button and the title of the page-->
         <%- include('../partials/header'); %>
     </header>
 
     <main>
+        <!-- Created a form so when the user clicks the 
+            submit button the data goes to the /process_form endpoint-->
         <form action="/process_form" method="post">
-            <label for="lang">Choose a language:</label>
-                <select name="lang" id="lang">
+            <label for="lang">Choose a language:</label> 
+                <select name="lang" id="lang"> <!-- initiates the selection button-->
+                    <!-- list of all the options the user can pick from-->
                     <option value="Python">Python</option>
                     <option value="C">C</option>
                     <option value="C#">C#</option>
@@ -21,13 +28,15 @@
                     <option value="JavaScript">JavaScript</option>
                 </select>
   <br><br>
-        
+            <!-- creates the submit button. using bootstrap
+                 I was able to customize the size/shape and color of the button-->
             <input class="btn btn-lg btn-primary btn-block" type="submit">
         </form>
         
     </main>
 
     <footer>
+        <!-- calls onto the footer.ejs to insert the code into the file. -->
         <%- include('../partials/footer'); %>
     </footer>
 
