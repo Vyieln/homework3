@@ -11,17 +11,20 @@
     </header>
 
     <main>
+        <!-- Heading will be at the top of the page -->
         <h2>Selected Programming Language</h2>
-            <!-- creates the card for the data-->
+            <!-- creates the card for the data that will taken from the api-->
             <div class="card">
+                <!-- card header where the name of the lan will go -->
                 <div class="card-header">
                     <!-- Will display the name of the selected language
-                         used <%=%> to include the name since it comes from the js file-->
+                         used to include the name since it comes from the js file-->
                     <p>Name: <%= locals.select %> </p>
                 </div>
                 <!-- Data inside of the card body-->
                 <div class="card-body">
-                    <!-- Creates the un ordered list for the data-->
+                    <!-- Creates the unordered list for each data point(created,by,marketshare,discp)-->
+                    <!-- using <=%> to insert the data from the api that was rendered through the form-->
                     <ul> 
                         <li>
                             Date Created: <%= locals.createdDate %> 
@@ -50,6 +53,7 @@
     </main>
 
     <footer>
+          <!-- calls onto the footer.ejs to insert the code into the file. -->
         <%- include('../partials/footer'); %>
     </footer>
 

@@ -17,10 +17,12 @@
     <main>
         <!-- Created a form so when the user clicks the 
             submit button the data goes to the /process_form endpoint-->
+          
         <form action="/process_form" method="post">
-            <label for="lang">Choose a language:</label> 
+           <br> <br>
                 <select name="lang" id="lang"> <!-- initiates the selection button-->
                     <!-- list of all the options the user can pick from-->
+                    <option value="" selected disabled> Select Programming Language</option>
                     <option value="Python">Python</option>
                     <option value="C">C</option>
                     <option value="C#">C#</option>
@@ -32,6 +34,7 @@
                  I was able to customize the size/shape and color of the button-->
             <input class="btn btn-lg btn-primary btn-block" type="submit">
         </form>
+         
         
     </main>
 
