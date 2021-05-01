@@ -15,11 +15,11 @@ app.get('/', function(req, res) {
     res.render('pages/index');
 });
 
-//testtest
+
 // the data from the selected language will be inserted into this endpoint using post
 app.post('/process_form', function(req, res){
 
-    // created a variable to hold the selected input
+    // created a variable to hold the selected input from the user 
     var lang = req.body.lang
 
     // print variable username to console
